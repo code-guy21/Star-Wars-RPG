@@ -1,0 +1,7 @@
+#players {
+    display: flex;
+}
+
+.player {
+    border: 2px solid green;
+}
