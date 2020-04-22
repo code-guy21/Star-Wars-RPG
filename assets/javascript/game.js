@@ -3,18 +3,26 @@ $(document).ready(function () {
 		{
 			name: 'Obi-Wan Kenobi',
 			health: 120,
+			attack: 25,
+			counter: 35,
 		},
 		{
 			name: 'Luke Skywalker',
 			health: 100,
+			attack: 35,
+			counter: 25,
 		},
 		{
 			name: 'Dark Sidious',
 			health: 150,
+			attack: 35,
+			counter: 40,
 		},
 		{
 			name: 'Darth Maul',
 			health: 180,
+			attack: 30,
+			counter: 45,
 		},
 	];
 
@@ -22,13 +30,20 @@ $(document).ready(function () {
 
 	$('.player').click(function () {
 		if (!main) {
-			main = $(this).val();
+			main = parseInt($(this).val());
 
-			let mainElement = $('<button>')
+			let mainElem = $('<button>')
 				.text(characters[main].name)
 				.attr('class', 'players');
 
-			$('#players').html(mainElement);
+			$('#players').html(mainElem);
+
+			for (let i = 0; i < characters.length; i++) {
+				if (i !== main) {
+					let enemyElem = $('<button>').text(characters[i].name);
+					$('#enemies').append(enemyElem);
+				}
+			}
 		}
 	});
 });
