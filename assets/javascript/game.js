@@ -26,24 +26,40 @@ $(document).ready(function () {
 		},
 	];
 
-	let main;
+	let main = null;
+	let enemy = null;
 
-	$('.player').click(function () {
-		if (!main) {
+	$('button').click(function () {
+		if (main === null) {
+			//store main character
 			main = parseInt($(this).val());
 
-			let mainElem = $('<button>')
-				.text(characters[main].name)
-				.attr('class', 'players');
+			//Hide other characters
+			$('#players > button:not([value="' + main + '"])').attr(
+				'style',
+				'display: none;'
+			);
 
-			$('#players').html(mainElem);
+			//Display available enemies
+			$('#enemies > button:not([value="' + main + '"])').attr(
+				'style',
+				'display: inline;'
+			);
+		} else if (enemy === null) {
+			//store current enemy
+			enemy = parseInt($(this).val());
 
-			for (let i = 0; i < characters.length; i++) {
-				if (i !== main) {
-					let enemyElem = $('<button>').text(characters[i].name);
-					$('#enemies').append(enemyElem);
-				}
-			}
+			//remove from available enemies
+			$('#enemies > button[value="' + enemy + '"]').attr(
+				'style',
+				'display: none;'
+			);
+
+			//display as defender
+			$('#defender > button[value="' + enemy + '"]').attr(
+				'style',
+				'display: inline;'
+			);
 		}
 	});
 });

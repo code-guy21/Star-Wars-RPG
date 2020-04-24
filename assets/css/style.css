@@ -1,4 +1,4 @@
-#players,
-#enemies {
-    display: flex;
+#enemies>button,
+#defender>button {
+    display: none;
 }
