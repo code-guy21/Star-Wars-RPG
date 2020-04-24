@@ -55,7 +55,7 @@ $(document).ready(function () {
 		);
 
 		// hide defender
-		$('#defender > div[value="' + enemy.id + '"]').attr(
+		$('#defender > button[value="' + enemy.id + '"]').attr(
 			'style',
 			'display: none;'
 		);
@@ -68,7 +68,7 @@ $(document).ready(function () {
 		enemy = null;
 
 		//display character and enemy choices
-		$('.player').attr('style', 'display: inline-block');
+		$('.player').attr('style', 'display: flex');
 		$('.enemy').attr('style', 'display: none');
 	}
 
@@ -86,7 +86,7 @@ $(document).ready(function () {
 			//Display available enemies
 			$('#enemies > button:not([value="' + main.id + '"])').attr(
 				'style',
-				'display: inline-block;'
+				'display: flex;'
 			);
 		}
 	});
@@ -103,12 +103,14 @@ $(document).ready(function () {
 			);
 
 			//display as defender
-			$('#defender > div[value="' + enemy.id + '"]').attr(
+			$('#defender > button[value="' + enemy.id + '"]').attr(
 				'style',
-				'display: inline-block;'
+				'display: flex;'
 			);
 
-			$('#defender > div[value="' + enemy.id + '"] > span').text(enemy.health);
+			$('#defender > button[value="' + enemy.id + '"] > span').text(
+				enemy.health
+			);
 		}
 	});
 
@@ -138,7 +140,7 @@ $(document).ready(function () {
 
 			if (main.health <= 0) {
 				$('#status').html('<p>You have been defeated... GAME OVER!</p>');
-				$('#reset').attr('style', 'display: inline-block;');
+				$('#reset').attr('style', 'display: flex;');
 				game_over = true;
 			} else if (enemy.health <= 0) {
 				defeated++;
@@ -155,7 +157,7 @@ $(document).ready(function () {
 					);
 
 					// hide defender
-					$('#defender > div[value="' + enemy.id + '"]').attr(
+					$('#defender > button[value="' + enemy.id + '"]').attr(
 						'style',
 						'display: none;'
 					);
@@ -165,7 +167,9 @@ $(document).ready(function () {
 			}
 
 			$('#players > button[value="' + main.id + '"] > span').text(main.health);
-			$('#defender > div[value="' + enemy.id + '"] > span').text(enemy.health);
+			$('#defender > button[value="' + enemy.id + '"] > span').text(
+				enemy.health
+			);
 		}
 	});
 

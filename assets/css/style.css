@@ -1,5 +1,29 @@
 #enemies>button,
-#defender>div,
+#defender>button,
 #reset {
     display: none;
+}
+
+#header {
+    text-align: center;
+    font-size: 50px;
+    background: #000000;
+    color: black;
+    text-shadow: -1px 0 #FFE81F, 0 1px #FFE81F, 1px 0 #FFE81F, 0 -1px #FFE81F;
+    font-family: 'star_jedi', arial;
+    padding: 15px;
+}
+
+#players,
+#enemies,
+#defender {
+    display: flex;
+}
+
+.player,
+.enemy,
+.defend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

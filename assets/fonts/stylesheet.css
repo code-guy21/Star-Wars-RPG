@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'star_jedi';
+    src: url('star-jedi-webfont.woff2') format('woff2'),
+        url('star-jedi-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
