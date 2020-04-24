@@ -1,4 +1,5 @@
 #enemies>button,
-#defender>button {
+#defender>div,
+#reset {
     display: none;
 }

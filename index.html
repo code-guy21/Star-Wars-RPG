@@ -19,25 +19,30 @@
     <header>Star Wars RPG!</header>
     <main>
         <section id="players">
-            <button value="0">Obi-Wan Kenobi</button>
-            <button value="1">Luke Skywalker</button>
-            <button value="2">Darth Sidious</button>
-            <button value="3">Darth Maul</button>
+            <button class="player" value="0">Obi-Wan Kenobi <span>140</span></button>
+            <button class="player" value="1">Luke Skywalker <span>100</span></button>
+            <button class="player" value="2">Darth Sidious <span>180</span></button>
+            <button class="player" value="3">Darth Maul <span>150</span></button>
         </section>
         <h3>Enemies Available</h3>
         <section id="enemies">
-            <button value="0">Obi-Wan Kenobi</button>
-            <button value="1">Luke Skywalker</button>
-            <button value="2">Darth Sidious</button>
-            <button value="3">Darth Maul</button>
+            <button class="enemy" value="0">Obi-Wan Kenobi <span>140</span> </button>
+            <button class="enemy" value="1">Luke Skywalker <span>100</span> </button>
+            <button class="enemy" value="2">Darth Sidious <span>180</span> </button>
+            <button class="enemy" value="3">Darth Maul <span>150</span> </button>
         </section>
+        <h3>Fight Section</h3>
+        <button id="attack">Attack</button>
         <h3>Defender</h3>
         <section id="defender">
-            <button value="0">Obi-Wan Kenobi</button>
-            <button value="1">Luke Skywalker</button>
-            <button value="2">Darth Sidious</button>
-            <button value="3">Darth Maul</button>
+            <div value="0">Obi-Wan Kenobi <span>140</span></div>
+            <div value="1">Luke Skywalker <span>100</span></div>
+            <div value="2">Darth Sidious <span>180</span></div>
+            <div value="3">Darth Maul <span>150</span></div>
         </section>
+        <div id="status"></div>
+        <button id="reset">reset</button>
+
     </main>
     <script src="./assets/javascript/game.js"></script>
 </body>
