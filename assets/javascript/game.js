@@ -32,7 +32,7 @@ $(document).ready(function () {
 		{
 			id: 3,
 			name: 'Darth Maul',
-			health: 150,
+			health: 250,
 			base_attack: 10,
 			attack_power: 10,
 			counter: 30,
@@ -42,6 +42,9 @@ $(document).ready(function () {
 	function reset() {
 		// game is not game_over
 		game_over = false;
+
+		//reset defeated enemies
+		defeated = 0;
 
 		// hide reset
 		$('#reset').attr('style', 'display: none;');
@@ -140,18 +143,27 @@ $(document).ready(function () {
 			} else if (enemy.health <= 0) {
 				defeated++;
 
-				$('#status').html(
-					'<p>You defeated ' + enemy.name + ' , you can choose another enemy '
-				);
+				if (defeated === 3) {
+					$('#status').html('<p>You Won!!!, Game Over </p>');
+					$('#reset').attr('style', 'display: inline-block;');
+					game_over = true;
+				} else {
+					$('#status').html(
+						'<p>You defeated ' +
+							enemy.name +
+							' , you can choose another enemy </p>'
+					);
 
-				// hide defender
-				$('#defender > div[value="' + enemy.id + '"]').attr(
-					'style',
-					'display: none;'
-				);
+					// hide defender
+					$('#defender > div[value="' + enemy.id + '"]').attr(
+						'style',
+						'display: none;'
+					);
 
-				enemy = null;
+					enemy = null;
+				}
 			}
+
 			$('#players > button[value="' + main.id + '"] > span').text(main.health);
 			$('#defender > div[value="' + enemy.id + '"] > span').text(enemy.health);
 		}
