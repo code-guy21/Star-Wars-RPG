@@ -20,6 +20,7 @@
 <body>
         <header id="header">Star Wars</header>
         <main>
+                <h3>Character</h3>
                 <section id="players">
                         <button class="player" value="0">
                                 <span id="name">
@@ -82,13 +83,16 @@
                                         width="100px" /><span id="health">150</span>
                         </button>
                 </section>
-                <h3>Fight Section</h3>
-                <button id="attack">Attack</button>
+                <section id="fight">
+                        <h3>Fight Section</h3>
+                        <button id="attack">Attack</button>
+                </section>
+
                 <h3>Defender</h3>
                 <section id="defender">
                         <button class="defend" value="0">
                                 <span id="name">
-                                        Obi-Wan Kenobi
+                                        obi-Wan Kenobi
                                 </span>
                                 <img src="./assets/images/obiwan.jpg" alt="obi-wan" height="100px" width="100px" />
                                 <span id="health">140</span>
@@ -117,8 +121,11 @@
                                         width="100px" /><span id="health">150</span>
                         </button>
                 </section>
-                <div id="status"></div>
-                <button id="reset">reset</button>
+                <section id="stats-section">
+                        <section id="status"></section>
+                        <button id="reset">reset</button>
+                </section>
+
         </main>
         <script src="./assets/javascript/game.js"></script>
 </body>

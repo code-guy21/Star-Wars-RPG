@@ -7,7 +7,7 @@ $(document).ready(function () {
 	const characters = [
 		{
 			id: 0,
-			name: 'Obi-Wan Kenobi',
+			name: 'obi-Wan Kenobi',
 			health: 140,
 			base_attack: 6,
 			attack_power: 6,
@@ -140,7 +140,7 @@ $(document).ready(function () {
 			main.attack_power += main.base_attack;
 
 			if (main.health <= 0) {
-				$('#status').html('<p>You have been defeated... GAME OVER!</p>');
+				$('#status').html('<p>You have been defeated</p>');
 				$('#reset').attr('style', 'display: flex;');
 				game_over = true;
 			} else if (enemy.health <= 0) {
@@ -154,7 +154,7 @@ $(document).ready(function () {
 					$('#status').html(
 						'<p>You defeated ' +
 							enemy.name +
-							' , you can choose another enemy </p>'
+							'</p><p> you can choose another enemy </p>'
 					);
 
 					// hide defender

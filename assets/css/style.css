@@ -7,19 +7,29 @@
 body {
     display: flex;
     flex-direction: column;
+    font-family: 'star_jedi', arial;
+    background-image: url('../images/swbg.jpg');
+
 }
 
 main {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+h3,
+section,
+p {
+    padding-bottom: 10px;
 }
 
 #header {
     text-align: center;
     font-size: 50px;
-    background: #000000;
     color: black;
-    text-shadow: -1px 0 #ffe81f, 0 1px #ffe81f, 1px 0 #ffe81f, 0 -1px #ffe81f;
-    font-family: 'star_jedi', arial;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     padding: 15px;
 }
 
@@ -37,7 +47,7 @@ main {
     flex-direction: column;
     align-items: center;
     width: 25%;
-    margin: 5px;
+    margin-right: 5px;
 }
 
 button>img {
@@ -47,4 +57,33 @@ button>img {
 
 button>span {
     height: 10%;
+    padding: 1px;
+}
+
+@media screen and (max-width: 750px) {
+
+    #players,
+    #enemies,
+    #defender {
+        display: flex;
+        width: 100%;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    button>img {
+        height: 60%;
+    }
+
+    button>span {
+        height: 20%;
+    }
+
+    .player,
+    .enemy,
+    .defend {
+        margin: 0px;
+    }
 }
