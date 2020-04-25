@@ -2,66 +2,125 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Wars</title>
-    <!--Reset CSS-->
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <!--Star Wars Font-->
-    <!--Source: https://www.starwarsfont.com/fonts/star_jedi-->
-    <link rel="stylesheet" href="./assets/fonts/stylesheet.css">
-    <!--Custom CSS-->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!--jQuery-->
-    <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
-        integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Star Wars</title>
+        <!--Reset CSS-->
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <!--Star Wars Font-->
+        <!--Source: https://www.starwarsfont.com/fonts/star_jedi-->
+        <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+        <!--Custom CSS-->
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <!--jQuery-->
+        <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
+                integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header id="header">Star Wars</header>
-    <main>
-        <section id="players">
-            <button class="player" value="0">Obi-Wan Kenobi <img src="./assets/images/obiwan.jpg" alt="obi-wan"
-                    height="100px" width="100px">
-                <span>140</span></button>
-            <button class="player" value="1">Luke Skywalker <img src="./assets/images/luke.jpg" alt="luke"
-                    height="100px" width="100px"><span>100</span></button>
-            <button class="player" value="2">Darth Sidious <img src="./assets/images/darthsidious.jpg"
-                    alt="darth_sidious" height="100px" width="100px"> <span>180</span></button>
-            <button class="player" value="3">Darth Maul <img src="./assets/images/darthmaul.png" alt="darth_maul"
-                    height="100px" width="100px"><span>150</span></button>
-        </section>
-        <h3>Enemies Available</h3>
-        <section id="enemies">
-            <button class="enemy" value="0">Obi-Wan Kenobi <img src="./assets/images/obiwan.jpg" alt="obi-wan"
-                    height="100px" width="100px">
-                <span>140</span></button>
-            <button class="enemy" value="1">Luke Skywalker <img src="./assets/images/luke.jpg" alt="luke" height="100px"
-                    width="100px"><span>100</span></button>
-            <button class="enemy" value="2">Darth Sidious <img src="./assets/images/darthsidious.jpg"
-                    alt="darth_sidious" height="100px" width="100px"> <span>180</span></button>
-            <button class="enemy" value="3">Darth Maul <img src="./assets/images/darthmaul.png" alt="darth_maul"
-                    height="100px" width="100px"><span>150</span></button>
-        </section>
-        <h3>Fight Section</h3>
-        <button id="attack">Attack</button>
-        <h3>Defender</h3>
-        <section id="defender">
-            <button class="defend" value="0">Obi-Wan Kenobi <img src="./assets/images/obiwan.jpg" alt="obi-wan"
-                    height="100px" width="100px">
-                <span>140</span></button>
-            <button class="defend" value="1">Luke Skywalker <img src="./assets/images/luke.jpg" alt="luke"
-                    height="100px" width="100px"><span>100</span></button>
-            <button class="defend" value="2">Darth Sidious <img src="./assets/images/darthsidious.jpg"
-                    alt="darth_sidious" height="100px" width="100px"> <span>180</span></button>
-            <button class="defend" value="3">Darth Maul <img src="./assets/images/darthmaul.png" alt="darth_maul"
-                    height="100px" width="100px"><span>150</span></button>
-        </section>
-        <div id="status"></div>
-        <button id="reset">reset</button>
+        <header id="header">Star Wars</header>
+        <main>
+                <section id="players">
+                        <button class="player" value="0">
+                                <span id="name">
+                                        Obi-Wan Kenobi
+                                </span>
+                                <img src="./assets/images/obiwan.jpg" alt="obi-wan" />
+                                <span id="health">140</span>
+                        </button>
+                        <button class="player" value="1">
+                                <span id="name">
+                                        Luke Skywalker
+                                </span>
+                                <img src="./assets/images/luke.jpg" alt="luke" /><span id="health">100</span>
+                        </button>
+                        <button class="player" value="2">
+                                <span id="name">
+                                        Darth Sidious
+                                </span>
 
-    </main>
-    <script src="./assets/javascript/game.js"></script>
+                                <img src="./assets/images/palpatine.jpg" alt="darth_sidious" />
+                                <span id="health">180</span>
+                        </button>
+                        <button class="player" value="3">
+                                <span id="name">
+                                        Darth Maul
+                                </span>
+
+                                <img src="./assets/images/darthmaul.png" alt="darth_maul" /><span id="health">150</span>
+                        </button>
+                </section>
+                <h3>Enemies Available</h3>
+                <section id="enemies">
+                        <button class="enemy" value="0">
+                                <span id="name">
+                                        Obi-Wan Kenobi
+                                </span>
+                                <img src="./assets/images/obiwan.jpg" alt="obi-wan" height="100px" width="100px" />
+                                <span id="health">140</span>
+                        </button>
+                        <button class="enemy" value="1">
+                                <span id="name">
+                                        Luke Skywalker
+                                </span>
+                                <img src="./assets/images/luke.jpg" alt="luke" height="100px" width="100px" /><span
+                                        id="health">100</span>
+                        </button>
+                        <button class="enemy" value="2">
+                                <span id="name">
+                                        Darth Sidious
+                                </span>
+                                <img src="./assets/images/palpatine.jpg" alt="darth_sidious" height="100px"
+                                        width="100px" />
+                                <span id="health">180</span>
+                        </button>
+                        <button class="enemy" value="3">
+                                <span id="name">
+                                        Darth Maul
+                                </span>
+                                <img src="./assets/images/darthmaul.png" alt="darth_maul" height="100px"
+                                        width="100px" /><span id="health">150</span>
+                        </button>
+                </section>
+                <h3>Fight Section</h3>
+                <button id="attack">Attack</button>
+                <h3>Defender</h3>
+                <section id="defender">
+                        <button class="defend" value="0">
+                                <span id="name">
+                                        Obi-Wan Kenobi
+                                </span>
+                                <img src="./assets/images/obiwan.jpg" alt="obi-wan" height="100px" width="100px" />
+                                <span id="health">140</span>
+                        </button>
+
+                        <button class="defend" value="1">
+                                <span id="name">
+                                        Luke Skywalker
+                                </span>
+                                <img src="./assets/images/luke.jpg" alt="luke" height="100px" width="100px" /><span
+                                        id="health">100</span>
+                        </button>
+                        <button class="defend" value="2">
+                                <span id="name">
+                                        Darth Sidious
+                                </span>
+                                <img src="./assets/images/palpatine.jpg" alt="darth_sidious" height="100px"
+                                        width="100px" />
+                                <span id="health">180</span>
+                        </button>
+                        <button class="defend" value="3">
+                                <span id="name">
+                                        Darth Maul
+                                </span>
+                                <img src="./assets/images/darthmaul.png" alt="darth_maul" height="100px"
+                                        width="100px" /><span id="health">150</span>
+                        </button>
+                </section>
+                <div id="status"></div>
+                <button id="reset">reset</button>
+        </main>
+        <script src="./assets/javascript/game.js"></script>
 </body>
 
 </html>

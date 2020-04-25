@@ -4,12 +4,21 @@
     display: none;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    padding: 20px;
+}
+
 #header {
     text-align: center;
     font-size: 50px;
     background: #000000;
     color: black;
-    text-shadow: -1px 0 #FFE81F, 0 1px #FFE81F, 1px 0 #FFE81F, 0 -1px #FFE81F;
+    text-shadow: -1px 0 #ffe81f, 0 1px #ffe81f, 1px 0 #ffe81f, 0 -1px #ffe81f;
     font-family: 'star_jedi', arial;
     padding: 15px;
 }
@@ -18,6 +27,7 @@
 #enemies,
 #defender {
     display: flex;
+    width: 50%;
 }
 
 .player,
@@ -26,4 +36,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 25%;
+    margin: 5px;
+}
+
+button>img {
+    width: 100%;
+    height: 80%;
+}
+
+button>span {
+    height: 10%;
 }

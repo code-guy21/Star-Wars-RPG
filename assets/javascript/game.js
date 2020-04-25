@@ -50,7 +50,8 @@ $(document).ready(function () {
 		$('#reset').attr('style', 'display: none;');
 
 		//reset health stats
-		$('#players > button[value="' + main.id + '"] > span').text(
+
+		$('#players > button[value="' + main.id + '"] > #health').text(
 			characters[main.id].health
 		);
 
@@ -108,7 +109,7 @@ $(document).ready(function () {
 				'display: flex;'
 			);
 
-			$('#defender > button[value="' + enemy.id + '"] > span').text(
+			$('#defender > button[value="' + enemy.id + '"] > #health').text(
 				enemy.health
 			);
 		}
@@ -166,8 +167,10 @@ $(document).ready(function () {
 				}
 			}
 
-			$('#players > button[value="' + main.id + '"] > span').text(main.health);
-			$('#defender > button[value="' + enemy.id + '"] > span').text(
+			$('#players > button[value="' + main.id + '"] > #health').text(
+				main.health
+			);
+			$('#defender > button[value="' + enemy.id + '"] > #health').text(
 				enemy.health
 			);
 		}
