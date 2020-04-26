@@ -1,113 +1,105 @@
+let main = null;
+let enemy = null;
+let game_over = false;
+let enemies_defeated = 0;
+
+const characters = [
+	{
+		id: 0,
+		name: 'obi-Wan Kenobi',
+		health: 140,
+		base_attack: 6,
+		attack_power: 6,
+		counter: 15,
+	},
+	{
+		id: 1,
+		name: 'Luke Skywalker',
+		health: 100,
+		base_attack: 8,
+		attack_power: 8,
+		counter: 20,
+	},
+	{
+		id: 2,
+		name: 'Darth Sidious',
+		health: 180,
+		base_attack: 7,
+		attack_power: 7,
+		counter: 35,
+	},
+	{
+		id: 3,
+		name: 'Darth Maul',
+		health: 250,
+		base_attack: 10,
+		attack_power: 10,
+		counter: 30,
+	},
+];
+
+function hide(elem) {
+	$(elem).attr('style', 'display: none;');
+}
+
+function display(elem) {
+	$(elem).attr('style', 'display: flex;');
+}
+
 $(document).ready(function () {
-	let main = null;
-	let enemy = null;
-	let game_over = false;
-	let defeated = 0;
-
-	const characters = [
-		{
-			id: 0,
-			name: 'obi-Wan Kenobi',
-			health: 140,
-			base_attack: 6,
-			attack_power: 6,
-			counter: 15,
-		},
-		{
-			id: 1,
-			name: 'Luke Skywalker',
-			health: 100,
-			base_attack: 8,
-			attack_power: 8,
-			counter: 20,
-		},
-		{
-			id: 2,
-			name: 'Darth Sidious',
-			health: 180,
-			base_attack: 7,
-			attack_power: 7,
-			counter: 35,
-		},
-		{
-			id: 3,
-			name: 'Darth Maul',
-			health: 250,
-			base_attack: 10,
-			attack_power: 10,
-			counter: 30,
-		},
-	];
-
 	function reset() {
-		// game is not game_over
+		// reset game session
 		game_over = false;
+		enemies_defeated = 0;
 
-		//reset defeated enemies
-		defeated = 0;
-
-		// hide reset
-		$('#reset').attr('style', 'display: none;');
+		// hide restart button
+		hide('#reset');
 
 		//reset health stats
-
 		$('#players > button[value="' + main.id + '"] > #health').text(
 			characters[main.id].health
 		);
 
 		// hide defender
-		$('#defender > button[value="' + enemy.id + '"]').attr(
-			'style',
-			'display: none;'
-		);
+		hide('#defender > button[value="' + enemy.id + '"]');
 
 		// hide game status
 		$('#status').html('');
 
-		//reset characters to null
+		//reset characters
 		main = null;
 		enemy = null;
 
-		//display character and enemy choices
-		$('.player').attr('style', 'display: flex');
-		$('.enemy').attr('style', 'display: none');
+		//display character and hide enemy choices
+		display('.player');
+		hide('.enemy');
 	}
 
+	//listener for main character selection
 	$('.player').click(function () {
 		if (main === null) {
 			//store main character
 			main = { ...characters[parseInt($(this).val())] };
 
 			//Hide other characters
-			$('#players > button:not([value="' + main.id + '"])').attr(
-				'style',
-				'display: none;'
-			);
+			hide('#players > button:not([value="' + main.id + '"])');
 
 			//Display available enemies
-			$('#enemies > button:not([value="' + main.id + '"])').attr(
-				'style',
-				'display: flex;'
-			);
+			display('#enemies > button:not([value="' + main.id + '"])');
 		}
 	});
 
+	//listener for enemy character selections
 	$('.enemy').click(function () {
 		if (enemy === null) {
-			//store current enemy index
+			//store enemy selection
 			enemy = { ...characters[parseInt($(this).val())] };
 
 			//remove from available enemies
-			$('#enemies > button[value="' + enemy.id + '"]').attr(
-				'style',
-				'display: none;'
-			);
+			hide('#enemies > button[value="' + enemy.id + '"]');
 
-			//display as defender
-			$('#defender > button[value="' + enemy.id + '"]').attr(
-				'style',
-				'display: flex;'
-			);
+			//display as defender and update health
+			display('#defender > button[value="' + enemy.id + '"]');
 
 			$('#defender > button[value="' + enemy.id + '"] > #health').text(
 				enemy.health
@@ -115,8 +107,10 @@ $(document).ready(function () {
 		}
 	});
 
+	//listener for attack button
 	$('#attack').click(function () {
 		if (main !== null && enemy !== null && !game_over) {
+			//display damage and counter stats
 			$('#status').html(
 				'<p>You attacked ' +
 					enemy.name +
@@ -139,16 +133,33 @@ $(document).ready(function () {
 			//increase main character attack power
 			main.attack_power += main.base_attack;
 
+			//update health stats
+			$('#players > button[value="' + main.id + '"] > #health').text(
+				main.health
+			);
+			$('#defender > button[value="' + enemy.id + '"] > #health').text(
+				enemy.health
+			);
+
+			//check if player or enemy has been defeated
 			if (main.health <= 0) {
+				//notify player has lost the game
 				$('#status').html('<p>You have been defeated</p>');
-				$('#reset').attr('style', 'display: flex;');
+				//display restart button
+				display('#reset');
+				//game is over
 				game_over = true;
 			} else if (enemy.health <= 0) {
-				defeated++;
+				//increase number of enemies defeated
+				enemies_defeated++;
 
-				if (defeated === 3) {
-					$('#status').html('<p>You Won!!!, Game Over </p>');
-					$('#reset').attr('style', 'display: inline-block;');
+				//check if all enemies have been defeated
+				if (enemies_defeated === 3) {
+					//notify user has won the game
+					$('#status').html('<p>You Win!!!</p>');
+					//display restart button
+					display('#reset');
+					//game is over
 					game_over = true;
 				} else {
 					$('#status').html(
@@ -157,24 +168,16 @@ $(document).ready(function () {
 							'</p><p> you can choose another enemy </p>'
 					);
 
-					// hide defender
-					$('#defender > button[value="' + enemy.id + '"]').attr(
-						'style',
-						'display: none;'
-					);
+					// hide enemy
+					hide('#defender > button[value="' + enemy.id + '"]');
 
+					// reset enemy
 					enemy = null;
 				}
 			}
-
-			$('#players > button[value="' + main.id + '"] > #health').text(
-				main.health
-			);
-			$('#defender > button[value="' + enemy.id + '"] > #health').text(
-				enemy.health
-			);
 		}
 	});
 
+	//listener for restart button
 	$('#reset').click(reset);
 });

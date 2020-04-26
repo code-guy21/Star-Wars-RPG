@@ -1,15 +1,8 @@
-#enemies>button,
-#defender>button,
-#reset {
-    display: none;
-}
-
 body {
     display: flex;
     flex-direction: column;
     font-family: 'star_jedi', arial;
     background-image: url('../images/swbg.jpg');
-
 }
 
 main {
@@ -19,30 +12,36 @@ main {
     color: white;
 }
 
-h3,
-section,
-p {
-    padding-bottom: 10px;
-}
-
-#header {
+header {
     text-align: center;
     font-size: 50px;
-    color: black;
+    color: #0A0000;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     padding: 15px;
 }
 
-#players,
-#enemies,
-#defender {
+#enemies>button,
+#defender>button,
+#reset {
+    display: none;
+}
+
+button {
+    font-family: 'star_jedi', arial;
+    color: white;
+    background: #0A0000;
+}
+
+.elem {
+    padding-bottom: 10px;
+}
+
+.sec {
     display: flex;
     width: 50%;
 }
 
-.player,
-.enemy,
-.defend {
+.btn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +49,7 @@ p {
     margin-right: 5px;
 }
 
-button>img {
+img {
     width: 100%;
     height: 80%;
 }
@@ -62,10 +61,7 @@ button>span {
 
 @media screen and (max-width: 750px) {
 
-    #players,
-    #enemies,
-    #defender {
-        display: flex;
+    .sec {
         width: 100%;
     }
 
@@ -73,17 +69,15 @@ button>span {
         padding: 10px;
     }
 
-    button>img {
-        height: 60%;
+    img {
+        height: 50%;
     }
 
     button>span {
-        height: 20%;
+        height: 25%;
     }
 
-    .player,
-    .enemy,
-    .defend {
+    .btn {
         margin: 0px;
     }
 }
