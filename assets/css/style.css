@@ -48,6 +48,7 @@ button {
     width: 25%;
     margin-right: 5px;
     border-radius: 10px;
+    padding: 0px;
 }
 
 img {
@@ -71,11 +72,16 @@ button>span {
     }
 
     img {
-        height: 40%;
+        height: 80%;
+        border-radius: 10px 0px 0px 0px;
     }
 
-    button>span {
-        height: 30%;
+    #name {
+        display: none;
+    }
+
+    #health {
+        height: 20%;
     }
 
     .btn {
