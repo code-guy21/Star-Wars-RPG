@@ -123,16 +123,16 @@ $(document).ready(function () {
 			soundfx[Math.floor(Math.random() * 2)].play();
 			//display damage and counter stats
 			$('#status').html(
-				'<p>You attacked ' +
+				'<p>You attacked <span style="color: #FFE81F">' +
 					enemy.name +
-					' for ' +
+					'</span> for <span style="color:#03fc0b;">' +
 					main.attack_power +
-					' damage</p>' +
-					'<p>' +
+					'</span> damage</p>' +
+					'<p> <span style="color: #FFE81F">' +
 					enemy.name +
-					' attacked you for ' +
+					'</span> attacked you for <span style="color:red;">' +
 					enemy.counter +
-					' damage </p>'
+					'</span> damage </p>'
 			);
 
 			//decrease enemy health
@@ -155,7 +155,7 @@ $(document).ready(function () {
 			//check if player or enemy has been defeated
 			if (main.health <= 0) {
 				//notify player has lost the game
-				$('#status').html('<p>You have been defeated</p>');
+				$('#status').html('<p style="color:red;">Game over</p>');
 				//display restart button
 				display('#reset');
 				//game is over
@@ -167,16 +167,16 @@ $(document).ready(function () {
 				//check if all enemies have been defeated
 				if (enemies_defeated === 3) {
 					//notify user has won the game
-					$('#status').html('<p>You Win!!!</p>');
+					$('#status').html('<p style="color:#03fc0b;">You Win!!!</p>');
 					//display restart button
 					display('#reset');
 					//game is over
 					game_over = true;
 				} else {
 					$('#status').html(
-						'<p>You defeated ' +
+						'<p>You defeated <span style="color: #FFE81F">' +
 							enemy.name +
-							'</p><p> you can choose another enemy </p>'
+							'</span></p><p> you can choose another enemy </p>'
 					);
 
 					// hide enemy
