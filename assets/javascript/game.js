@@ -45,11 +45,11 @@ const characters = [
 ];
 
 function hide(elem) {
-	$(elem).attr('style', 'display: none;');
+	$(elem).css('display', 'none');
 }
 
 function display(elem) {
-	$(elem).attr('style', 'display: flex;');
+	$(elem).css('display', 'flex');
 }
 
 $(document).ready(function () {
