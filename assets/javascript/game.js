@@ -13,33 +13,33 @@ const characters = [
 	{
 		id: 0,
 		name: 'obi-Wan Kenobi',
-		health: 140,
-		base_attack: 6,
-		attack_power: 6,
-		counter: 15,
+		health: 280,
+		base_attack: 10,
+		attack_power: 10,
+		counter: 25,
 	},
 	{
 		id: 1,
 		name: 'Luke Skywalker',
-		health: 100,
-		base_attack: 8,
-		attack_power: 8,
-		counter: 20,
+		health: 180,
+		base_attack: 30,
+		attack_power: 30,
+		counter: 15,
 	},
 	{
 		id: 2,
 		name: 'Darth Sidious',
-		health: 180,
-		base_attack: 7,
-		attack_power: 7,
-		counter: 35,
+		health: 270,
+		base_attack: 9,
+		attack_power: 9,
+		counter: 20,
 	},
 	{
 		id: 3,
 		name: 'Darth Maul',
-		health: 250,
-		base_attack: 10,
-		attack_power: 10,
+		health: 200,
+		base_attack: 16,
+		attack_power: 16,
 		counter: 30,
 	},
 ];
@@ -99,6 +99,8 @@ $(document).ready(function () {
 	//listener for enemy character selections
 	$('.enemy').click(function () {
 		if (enemy === null) {
+			$('#status').html('');
+
 			soundfx[2].play();
 			//store enemy selection
 			enemy = { ...characters[parseInt($(this).val())] };
