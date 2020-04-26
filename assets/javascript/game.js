@@ -3,6 +3,12 @@ let enemy = null;
 let game_over = false;
 let enemies_defeated = 0;
 
+let soundfx = [
+	new Audio('./assets/sound/Swing01.mp3'),
+	new Audio('./assets/sound/Swing02.mp3'),
+	new Audio('./assets/sound/fx4.mp3'),
+];
+
 const characters = [
 	{
 		id: 0,
@@ -78,6 +84,7 @@ $(document).ready(function () {
 	//listener for main character selection
 	$('.player').click(function () {
 		if (main === null) {
+			soundfx[2].play();
 			//store main character
 			main = { ...characters[parseInt($(this).val())] };
 
@@ -92,6 +99,7 @@ $(document).ready(function () {
 	//listener for enemy character selections
 	$('.enemy').click(function () {
 		if (enemy === null) {
+			soundfx[2].play();
 			//store enemy selection
 			enemy = { ...characters[parseInt($(this).val())] };
 
@@ -110,6 +118,7 @@ $(document).ready(function () {
 	//listener for attack button
 	$('#attack').click(function () {
 		if (main !== null && enemy !== null && !game_over) {
+			soundfx[Math.floor(Math.random() * 2)].play();
 			//display damage and counter stats
 			$('#status').html(
 				'<p>You attacked ' +
