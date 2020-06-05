@@ -101,7 +101,7 @@ $(document).ready(function () {
     if (enemy === null) {
       $("#status").html("");
 
-      soundfx[2].play();
+      //soundfx[2].play();
       //store enemy selection
       enemy = { ...characters[parseInt($(this).val())] };
 
