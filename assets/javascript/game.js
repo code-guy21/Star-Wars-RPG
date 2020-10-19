@@ -84,7 +84,7 @@ $(document).ready(function () {
   //listener for main character selection
   $(".player").click(function () {
     if (main === null) {
-      soundfx[2].play();
+      //soundfx[2].play();
       //store main character
       main = { ...characters[parseInt($(this).val())] };
 
